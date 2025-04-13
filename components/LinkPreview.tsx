@@ -6,7 +6,7 @@ export default function LinkPreview(
     return (
         <div>
             <h4>your shortened link to {post.link}</h4>
-            <p>is http://localhost:3000/r/{post.alias}</p>
+            <p>is https://cs-391-mp-5-eight.vercel.app/r/{post.alias}</p>
         </div>
     )
 }

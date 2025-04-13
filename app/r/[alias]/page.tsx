@@ -9,16 +9,17 @@ export default async function RedirectPage({
     const { alias } = await params;
     console.log("Requested alias for url is:", alias);
 
+    const linkDoc = await getLinkByAlias(alias);
+
     try {
-        const linkDoc = await getLinkByAlias(alias);
         if ( linkDoc === null ) {
             console.log("No link found for alias:", alias);
             return redirect("/");
         }
-        console.log("Redirected link:", linkDoc.link);
-        return redirect(linkDoc.link)
     } catch (err) {
         console.log("error found", err);
         return redirect("/");
     }
+    console.log("Redirected link:", linkDoc.link);
+    return redirect(linkDoc.link)
 }
