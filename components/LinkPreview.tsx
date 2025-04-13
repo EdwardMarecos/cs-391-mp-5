@@ -5,8 +5,8 @@ export default function LinkPreview(
 ) {
     return (
         <div>
-            <h4>your link is {post.link}</h4>
-            <p>{post.alias}</p>
+            <h4>your shortened link to {post.link}</h4>
+            <p>is http://localhost:3000/r/{post.alias}</p>
         </div>
     )
 }

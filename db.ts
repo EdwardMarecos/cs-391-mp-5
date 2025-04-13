@@ -1,6 +1,6 @@
 import { MongoClient, Db, Collection } from "mongodb";
 
-const MONGO_URI = process.env.MONGODB_URI as string;
+const MONGO_URI = process.env.MONGO_URI as string;
 if (!MONGO_URI) {
     throw new Error("MONGO_URI environment variable is undefined");
 }

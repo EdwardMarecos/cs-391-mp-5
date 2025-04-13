@@ -6,7 +6,7 @@ export default async function getAllLinks(): Promise<PostProps[]> {
     const data = await postCollection.find().toArray();
 
     const links: PostProps[] = data.map((p) => ({
-        id: p.id.toHexString(),
+        id: p._id.toHexString(),
         link: p.link,
         alias: p.alias,
 }));
