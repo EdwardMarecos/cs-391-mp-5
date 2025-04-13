@@ -2,7 +2,7 @@
 import getCollection, { POSTS_COLLECTION } from "@/db";
 import { PostProps } from "@/types";
 
-export default function createNewLink(
+export default async function createNewLink(
     link: string,
     alias: string,
 ): Promise<PostProps> {
@@ -20,5 +20,5 @@ export default function createNewLink(
         throw new Error("DB insert failed")
     }
 
-    return {...p, id: res.insertId.toHexString() };
+    return {...p, id: res.insertedId.toHexString() };
 }
