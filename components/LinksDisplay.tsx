@@ -1,7 +1,7 @@
 "use client";
 import { PostProps } from "@/types";
 import { useState } from "react";
-import LinkPreview from "./LinkPreview";
+// import LinkPreview from "./LinkPreview";
 import NewLinkForm from "./NewLinkForm";
 
 export default function LinksDisplay({
@@ -15,11 +15,12 @@ export default function LinksDisplay({
         setPosts([newPost, ...posts]);
     }
     return (
-      <div>
+      <div className="flex flex-col items-center gap-4">
           <NewLinkForm append={append}/>
-          {posts.map((p) => (
-            <LinkPreview key={p.id} post={p} />
-          ))}
+          {/*the following is to test to ensure the db is connected properly*/}
+          {/*{posts.map((p) => (*/}
+          {/*  <LinkPreview key={p.id} post={p} />*/}
+          {/*))}*/}
       </div>
     );
 }

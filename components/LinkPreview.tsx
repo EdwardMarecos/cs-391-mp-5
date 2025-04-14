@@ -1,5 +1,7 @@
 import { PostProps } from "@/types";
 
+// used for debugging and testing. not visible in submission
+
 export default function LinkPreview(
     { post }: { post: PostProps },
 ) {
