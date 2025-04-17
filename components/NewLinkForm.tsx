@@ -29,6 +29,7 @@ export default function NewLinkForm({
                     //add the new link if successful
                     if (typeof p === "string") {
                         setErrorMessage(p);
+                        console.error(`Error creating new link ${p}`);
                     } else {
                         //success message
                         setSuccessMessage(`Short URL Created: https://cs-391-mp-5-eight.vercel.app/r/${alias}`);
