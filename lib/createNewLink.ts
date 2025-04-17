@@ -18,7 +18,7 @@ export default async function createNewLink(
     // Check against loops: throw an error if the inputted link would cause one
     const ownDomain = "https://cs-391-mp-5-eight.vercel.app/";
     // const devDomain = "http://localhost:3000/" // for dev testing
-    if (link.startsWith(ownDomain)) { // || link.startsWith(devDomain)) {
+    if (link.includes(ownDomain)) { // || link.startsWith(devDomain)) {
         throw new Error("Invalid URL: Cycles are not allowed");
     }
 
