@@ -16,7 +16,7 @@ export default function LinksDisplay({
     }
     return (
       <div className="flex flex-col items-center gap-4">
-          <NewLinkForm append={append}/>
+          <NewLinkForm appendAction={append}/>
           {/*the following is to test to ensure the db is connected properly*/}
           {/*{posts.map((p) => (*/}
           {/*  <LinkPreview key={p.id} post={p} />*/}

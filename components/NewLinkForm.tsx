@@ -5,9 +5,9 @@ import createNewLink from "@/lib/createNewLink";
 import {PostProps} from "@/types";
 
 export default function NewLinkForm({
-   append,
+   appendAction,    //renamed because I was getting a project error telling me to rename
 }: {
-   append: (newPost: PostProps) => void;
+   appendAction: (newPost: PostProps) => void;
 }) {
     const [link, setLink] = useState("");
     const [alias, setAlias] = useState("");
@@ -26,11 +26,14 @@ export default function NewLinkForm({
                 createNewLink(link, alias)
                 .then((p) => {
 
-                    //add the new link
-                    append(p);
-
-                    //success message
-                    setSuccessMessage(`Short URL Created: https://cs-391-mp-5-eight.vercel.app/r/${alias}`);
+                    //add the new link if successful
+                    if (typeof p === "string") {
+                        setErrorMessage(p);
+                    } else {
+                        //success message
+                        setSuccessMessage(`Short URL Created: https://cs-391-mp-5-eight.vercel.app/r/${alias}`);
+                        appendAction(p);
+                    }
 
                     //clear form fields
                     setLink("")
@@ -38,7 +41,7 @@ export default function NewLinkForm({
                 })
                 .catch((err) => {
                     console.error(err);
-                    setErrorMessage(err.message || "An error occurred");
+                    setErrorMessage(err || "An error occurred");
                 });
             }}
             //styling for form
